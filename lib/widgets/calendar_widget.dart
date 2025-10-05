@@ -93,6 +93,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 400,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: const BorderRadius.only(
@@ -101,7 +102,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -136,7 +137,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
           ),
           
           // Calendar grid
-          Expanded(
+          Flexible(
             child: PageView.builder(
               controller: _pageController,
               onPageChanged: _onPageChanged,
@@ -183,7 +184,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
           const SizedBox(height: 8),
           
           // Calendar grid
-          Expanded(
+          Flexible(
             child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

@@ -81,7 +81,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
   Future<void> _addTask() async {
     final result = await showDialog<Task>(
       context: context,
-      builder: (context) => AddTaskDialog(),
+      builder: (context) => const AddTaskDialog(),
     );
 
     if (result != null) {
@@ -217,7 +217,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               color: Theme.of(context).colorScheme.primaryContainer,
               border: Border(
                 top: BorderSide(
-                  color: Theme.of(context).colorScheme.outline.withOpacity(0.2),
+                  color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.2),
                 ),
               ),
             ),

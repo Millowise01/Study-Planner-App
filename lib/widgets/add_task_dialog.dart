@@ -16,7 +16,6 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
   final _descriptionController = TextEditingController();
   DateTime _dueDate = DateTime.now();
   TimeOfDay _dueTime = TimeOfDay.now();
-  DateTime? _reminderTime;
   TimeOfDay? _reminderTimeOfDay;
   bool _hasReminder = false;
 
@@ -29,7 +28,6 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
       _dueDate = widget.task!.dueDate;
       _dueTime = TimeOfDay.fromDateTime(widget.task!.dueDate);
       if (widget.task!.reminderTime != null) {
-        _reminderTime = widget.task!.reminderTime;
         _reminderTimeOfDay = TimeOfDay.fromDateTime(widget.task!.reminderTime!);
         _hasReminder = true;
       }

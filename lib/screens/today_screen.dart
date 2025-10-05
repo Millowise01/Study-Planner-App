@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../models/task.dart';
 import '../services/database_service.dart';
-import '../services/settings_service.dart';
 import '../widgets/task_tile.dart';
 import '../widgets/add_task_dialog.dart';
 
@@ -15,16 +14,13 @@ class TodayScreen extends StatefulWidget {
 
 class _TodayScreenState extends State<TodayScreen> {
   final DatabaseService _databaseService = DatabaseService();
-  final SettingsService _settingsService = SettingsService();
   List<Task> _todayTasks = [];
   bool _isLoading = true;
-  bool _remindersEnabled = true;
 
   @override
   void initState() {
     super.initState();
     _loadTodayTasks();
-    _loadSettings();
   }
 
   Future<void> _loadTodayTasks() async {
@@ -48,13 +44,6 @@ class _TodayScreenState extends State<TodayScreen> {
         );
       }
     }
-  }
-
-  Future<void> _loadSettings() async {
-    final remindersEnabled = await _settingsService.getRemindersEnabled();
-    setState(() {
-      _remindersEnabled = remindersEnabled;
-    });
   }
 
   Future<void> _addTask() async {

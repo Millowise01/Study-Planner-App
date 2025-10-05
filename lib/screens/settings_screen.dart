@@ -244,7 +244,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         _buildInfoRow(
                           'Database',
                           'SQLite (Local)',
-                          Icons.database,
+                          Icons.storage,
                         ),
                         const SizedBox(height: 8),
                         _buildInfoRow(
