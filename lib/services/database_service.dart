@@ -2,6 +2,12 @@ import 'dart:async';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../models/task.dart';
+import 'package:flutter/foundation.dart';
+
+// Conditional imports for platform-specific code
+import 'database_service_stub.dart'
+    if (dart.library.io) 'database_service_io.dart'
+    if (dart.library.html) 'database_service_web.dart';
 
 class DatabaseService {
   static final DatabaseService _instance = DatabaseService._internal();
@@ -17,6 +23,9 @@ class DatabaseService {
   }
 
   Future<Database> _initDatabase() async {
+    // Initialize database factory based on platform
+    await initializeDatabaseFactory();
+    
     String path = join(await getDatabasesPath(), 'study_planner.db');
     return await openDatabase(
       path,
