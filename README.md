@@ -1,60 +1,60 @@
 # Study Planner App
 
-🎓 **A comprehensive Study Planner App built with Flutter** that helps students organize their tasks, manage schedules, and stay on top of their academic goals.
+**A comprehensive Study Planner App built with Flutter** that helps students organize their tasks, manage schedules, and stay on top of their academic goals.
 
-## ✨ App Status: **FULLY FUNCTIONAL** ✅
+## App Status: **FULLY FUNCTIONAL** 
 
-The app is **working perfectly** with all required features implemented and tested across multiple platforms including web browsers, desktop, and mobile devices.
+The app is **working perfectly** with all required features implemented and tested across multiple platforms, including web browsers, desktop, and mobile devices.
 
-## 📱 Core Features
+## Core Features
 
-### ✅ **Task Management** - *Complete Implementation*
-- ✅ **Create Tasks**: Add tasks with title (required), description (optional), due date (required), and reminder time (optional)
-- ✅ **Today's Tasks**: Dedicated screen showing all tasks due today with real-time updates
-- ✅ **View Tasks by Date**: Select any date to view scheduled tasks with smooth filtering
-- ✅ **Edit/Delete Tasks**: Full CRUD operations with confirmation dialogs
-- ✅ **Task Completion**: Mark tasks as complete/incomplete with visual feedback and strike-through text
-- ✅ **Overdue Detection**: Visual indicators for overdue tasks with red highlighting
+### **Task Management** - *Complete Implementation*
+**Create Tasks**: Add tasks with title (required), description (optional), due date (required), and reminder time (optional)
+**Today's Tasks**: Dedicated screen showing all tasks due today with real-time updates
+**View Tasks by Date**: Select any date to view scheduled tasks with smooth filtering
+**Edit/Delete Tasks**: Full CRUD operations with confirmation dialogs
+**Task Completion**: Mark tasks as complete/incomplete with visual feedback and strike-through text
+**Overdue Detection**: Visual indicators for overdue tasks with red highlighting
 
-### 📅 **Calendar View** - *Complete Implementation*
-- ✅ **Interactive Monthly Calendar**: Fully functional calendar displaying all days of the month
-- ✅ **Task Highlighting**: Dates with tasks are visually highlighted with colored borders and indicator dots
-- ✅ **Date Selection**: Tap any date to instantly view tasks scheduled for that day
-- ✅ **Smooth Month Navigation**: Navigate between months with fluid animations
-- ✅ **Today Indicator**: Current date is prominently highlighted for easy reference
-- ✅ **Task Count Display**: Shows number of tasks for selected date
+**Calendar View** - *Complete Implementation*
+**Interactive Monthly Calendar**: Fully functional calendar displaying all days of the month
+**Task Highlighting**: Dates with tasks are visually highlighted with colored borders and indicator dots
+**Date Selection**: Tap any date to view tasks scheduled for that day instantly
+**Smooth Month Navigation**: Navigate between months with fluid animations
+**Today Indicator**: Current date is prominently highlighted for easy reference
+**Task Count Display**: Shows the number of tasks for the selected date
 
-### 🔔 **Reminder System** - *Complete Implementation*
-- ✅ **Set Reminders**: Optional reminder times for tasks with time picker
-- ✅ **Smart Notifications**: Pop-up alert dialogs when app is opened for tasks with active reminders
-- ✅ **Reminder Toggle**: Enable/disable reminders globally in settings
-- ✅ **Visual Indicators**: Reminder times displayed in task tiles with notification icons
-- ✅ **Reminder Filtering**: Only shows reminders for incomplete tasks
+###  **Reminder System** - *Complete Implementation*
+**Set Reminders**: Optional reminder times for tasks with a time picker
+  **Smart Notifications**: Pop-up alert dialogs when the app is opened for tasks with active reminders
+  **Reminder Toggle**: Enable/disable reminders globally in settings
+  **Visual Indicators**: Reminder times displayed in task tiles with notification icons
+  **Reminder Filtering**: Only shows reminders for incomplete tasks
 
-### 💾 **Local Storage** - *Dual Implementation*
-- ✅ **SQLite Database**: Robust local storage for desktop and mobile platforms
-- ✅ **SharedPreferences**: Web-compatible storage using JSON serialization
-- ✅ **Data Persistence**: Tasks remain available after app restart across all platforms
-- ✅ **Cross-Platform**: Works seamlessly on Android, iOS, Windows, macOS, Linux, and Web
-- ✅ **Efficient Queries**: Optimized database operations and filtering
-- ✅ **Automatic Platform Detection**: Intelligently switches storage method based on platform
+###  **Local Storage** - *Dual Implementation*
+**SQLite Database**: Robust local storage for desktop and mobile platforms
+  **SharedPreferences**: Web-compatible storage using JSON serialization
+  **Data Persistence**: Tasks remain available after app restart across all platforms
+  **Cross-Platform**: Works seamlessly on Android, iOS, Windows, macOS, Linux, and Web
+  **Efficient Queries**: Optimized database operations and filtering
+  **Automatic Platform Detection**: Intelligently switches storage method based on platform
 
-### 🧭 **Navigation & Screens** - *Complete Implementation*
-- ✅ **Bottom Navigation Bar**: Three main screens with smooth transitions
-  - 📋 **Today**: Shows tasks due today with refresh functionality
-  - 📅 **Calendar**: Monthly calendar with comprehensive task management
-  - ⚙️ **Settings**: App configuration and detailed information
-- ✅ **Material Design 3**: Consistent UI following latest Material Design principles
-- ✅ **Responsive Layout**: Adapts to different screen sizes and orientations
+###  **Navigation & Screens** - *Complete Implementation*
+  **Bottom Navigation Bar**: Three main screens with smooth transitions
+  **Today**: Shows tasks due today with refresh functionality
+**Calendar**: Monthly calendar with comprehensive task management
+    **Settings**: App configuration and detailed information
+**Material Design 3**: Consistent UI following the latest Material Design principles
+**Responsive Layout**: Adapts to different screen sizes and orientations
 
 ### ⚙️ **Settings** - *Complete Implementation*
-- ✅ **Reminder Toggle**: Enable/disable reminder notifications with instant feedback
-- ✅ **Storage Information**: Display current storage method (SQLite/SharedPreferences)
-- ✅ **App Information**: Version, total tasks count, and comprehensive app details
-- ✅ **Data Management**: Reset settings and clear all tasks with confirmation dialogs
-- ✅ **Platform Detection**: Shows appropriate storage method based on current platform
+**Reminder Toggle**: Enable/disable reminder notifications with instant feedback
+  **Storage Information**: Display current storage method (SQLite/SharedPreferences)
+  **App Information**: Version, total task count, and comprehensive app details
+  **Data Management**: Reset settings and clear all tasks with confirmation dialogs
+  **Platform Detection**: Shows appropriate storage method based on current platform
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 ### Project Structure
 ```
@@ -78,41 +78,41 @@ lib/
 └── main.dart                       # App entry point with navigation
 ```
 
-### 🔧 Platform-Specific Storage
+### Platform-Specific Storage
 
 #### **Desktop & Mobile Platforms**
-- **SQLite Database**: Full-featured relational database
-- **Automatic Initialization**: Platform-specific database factory setup
-- **Optimized Queries**: Indexed searches for date-based operations
-- **Transaction Support**: Atomic operations for data integrity
+**SQLite Database**: Full-featured relational database
+  **Automatic Initialization**: Platform-specific database factory setup
+  **Optimized Queries**: Indexed searches for date-based operations
+  **Transaction Support**: Atomic operations for data integrity
 
 #### **Web Platform**
-- **SharedPreferences**: Browser-compatible local storage
-- **JSON Serialization**: Efficient task data serialization/deserialization
-- **Automatic Fallback**: Seamless transition from SQLite to web storage
-- **Cross-Session Persistence**: Data survives browser refreshes
+**SharedPreferences**: Browser-compatible local storage
+  **JSON Serialization**: Efficient task data serialization/deserialization
+  **Automatic Fallback**: Seamless transition from SQLite to web storage
+  **Cross-Session Persistence**: Data survives browser refreshes
 
-### 🎨 UI/UX Features
+### UI/UX Features
 
 #### **Material Design 3**
-- ✅ **Color Scheme**: Dynamic color theming with seed colors
-- ✅ **Typography**: Consistent text styles throughout the app
-- ✅ **Elevation**: Proper card and surface elevation
-- ✅ **Shape**: Rounded corners and consistent border radius
+**Color Scheme**: Dynamic color theming with seed colors
+**Typography**: Consistent text styles throughout the app
+**Elevation**: Proper card and surface elevation
+**Shape**: Rounded corners and consistent border radius
 
 #### **Interactive Elements**
-- ✅ **Floating Action Buttons**: Quick task creation access
-- ✅ **Bottom Navigation**: Smooth tab switching with icons
-- ✅ **Dialog Boxes**: Modal dialogs for task editing and confirmations
-- ✅ **Snackbars**: User feedback for all operations
+**Floating Action Buttons**: Quick task creation access
+**Bottom Navigation**: Smooth tab switching with icons
+  **Dialog Boxes**: Modal dialogs for task editing and confirmations
+  **Snackbars**: User feedback for all operations
 
 #### **Visual Feedback**
-- ✅ **Loading States**: Progress indicators during data operations
-- ✅ **Empty States**: Informative messages when no data is available
-- ✅ **Error Handling**: Graceful error messages with retry options
-- ✅ **Success Indicators**: Confirmation messages for completed actions
+**Loading States**: Progress indicators during data operations
+  **Empty States**: Informative messages when no data is available
+  **Error Handling**: Graceful error messages with retry options
+  **Success Indicators**: Confirmation messages for completed actions
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Flutter SDK (>=3.0.0)
@@ -147,108 +147,108 @@ dependencies:
   shared_preferences: ^2.2.2         # Local preferences storage
 ```
 
-## 📋 Usage Guide
+## Usage Guide
 
-### 🆕 Creating Tasks
+### Creating Tasks
 1. **Access**: Tap the **+** floating action button on Today or Calendar screen
 2. **Fill Details**:
-   - **Title**: Required field (validated)
-   - **Description**: Optional additional details
-   - **Due Date**: Date picker for task deadline
-   - **Due Time**: Time picker for specific scheduling
-   - **Reminder**: Toggle switch with time picker for notifications
+   **Title**: Required field (validated)
+     **Description**: Optional additional details
+     **Due Date**: Date picker for task deadline
+     **Due Time**: Time picker for specific scheduling
+     **Reminder**: Toggle switch with time picker for notifications
 3. **Save**: Tap "Add Task" to save with instant feedback
 
-### 📝 Managing Tasks
-- **Complete**: Tap checkbox or task tile to toggle completion status
-- **Edit**: Use three-dot menu (⋮) and select "Edit" for full editing
-- **Delete**: Use three-dot menu (⋮) and select "Delete" with confirmation
-- **View Details**: All task information displayed in organized tiles
+### Managing Tasks
+**Complete**: Tap the checkbox or task tile to toggle completion status
+  **Edit**: Use three-dot menu (⋮) and select "Edit" for full editing
+  **Delete**: Use the three-dot menu (⋮) and select "Delete" with confirmation
+  **View Details**: All task information is displayed in organized tiles
 
-### 📅 Calendar Navigation
-- **Month Navigation**: Arrow buttons in header for smooth transitions
-- **Date Selection**: Tap any date to filter tasks for that specific day
-- **Visual Indicators**: 
-  - Colored borders for dates with tasks
-  - Dots below date numbers
-  - Today highlighting with special background
-- **Task Count**: Header shows number of tasks for selected date
+### Calendar Navigation
+**Month Navigation**: Arrow buttons in the header for smooth transitions
+  **Date Selection**: Tap any date to filter tasks for that specific day
+  **Visual Indicators**: 
+  Colored borders for dates with tasks
+    Dots below date numbers
+    Today, highlighting with a special background
+  **Task Count**: The Header shows the number of tasks for the selected date
 
-### ⚙️ Settings Management
-- **Reminders**: Toggle switch with immediate effect
-- **Storage Info**: View current storage method and statistics
-- **Data Management**: 
-  - Reset all settings to defaults
-  - Clear all tasks with double confirmation
-- **App Information**: Version, task count, and feature overview
+### Settings Management
+**Reminders**: Toggle switch with immediate effect
+  **Storage Info**: View current storage method and statistics
+  **Data Management**: 
+  Reset all settings to defaults
+    Clear all tasks with double confirmation
+  **App Information**: Version, task count, and feature overview
 
-## 🔍 Technical Highlights
+## Technical Highlights
 
 ### **Cross-Platform Compatibility**
-- ✅ **Web**: Runs perfectly in Chrome, Firefox, Safari, Edge
-- ✅ **Desktop**: Windows, macOS, Linux support
-- ✅ **Mobile**: Android and iOS compatibility
-- ✅ **Responsive**: Adapts to all screen sizes and orientations
+**Web**: Runs perfectly in Chrome, Firefox, Safari, Edge
+  **Desktop**: Windows, macOS, Linux support
+  **Mobile**: Android and iOS compatibility
+  **Responsive**: Adapts to all screen sizes and orientations
 
 ### **Data Management**
-- ✅ **Automatic Platform Detection**: Uses `kIsWeb` for intelligent storage selection
-- ✅ **Data Persistence**: All data survives app restarts and browser refreshes
-- ✅ **Efficient Filtering**: Optimized queries for date-based task retrieval
-- ✅ **Error Recovery**: Graceful handling of storage errors
+**Automatic Platform Detection**: Uses `kIsWeb` for intelligent storage selection
+  **Data Persistence**: All data survives app restarts and browser refreshes
+  **Efficient Filtering**: Optimized queries for date-based task retrieval
+  **Error Recovery**: Graceful handling of storage errors
 
 ### **Performance Optimizations**
-- ✅ **Lazy Loading**: Database connections initialized on demand
-- ✅ **Memory Management**: Proper disposal of controllers and resources
-- ✅ **State Management**: Minimal rebuilds with targeted setState calls
-- ✅ **Efficient Rendering**: IndexedStack for smooth tab switching
+**Lazy Loading**: Database connections initialized on demand
+  **Memory Management**: Proper disposal of controllers and resources
+  **State Management**: Minimal rebuilds with targeted setState calls
+  **Efficient Rendering**: IndexedStack for smooth tab switching
 
-## 🎯 Feature Demonstration
+## Feature Demonstration
 
 ### **Task Management Workflow**
-1. ✅ Create task with all required and optional fields
-2. ✅ View task in Today screen if due today
-3. ✅ See task highlighted in Calendar view
-4. ✅ Edit task details with pre-populated form
-5. ✅ Mark as complete with visual feedback
-6. ✅ Delete with confirmation dialog
+1. Create a task with all required and optional fields
+2. View task in Today screen if due today
+3. See the task highlighted in Calendar view
+4. Edit task details with pre-populated form
+5. Mark as complete with visual feedback
+6. Delete with confirmation dialog
 
 ### **Calendar Integration**
-1. ✅ Navigate to Calendar screen
-2. ✅ See current month with today highlighted
-3. ✅ Notice dates with tasks have visual indicators
-4. ✅ Tap any date to filter tasks
-5. ✅ Navigate between months smoothly
-6. ✅ Add tasks directly from calendar view
+1. Navigate to the Calendar screen
+2. See the current month with today highlighted
+3. Notice dates with tasks have visual indicators
+4. Tap any date to filter tasks
+5. Navigate between months smoothly
+6. Add tasks directly from calendar view
 
 ### **Reminder System**
-1. ✅ Create task with reminder time
-2. ✅ See reminder indicator in task tile
-3. ✅ Open app to see reminder dialog popup
-4. ✅ Toggle reminders in settings
-5. ✅ Verify reminder behavior changes
+1. Create a task with a reminder time
+2. See reminder indicator in task tile
+3. Open the app to see the reminder dialog pop-up
+4. Toggle reminders in settings
+5. Verify reminder behavior changes
 
 ### **Data Persistence**
-1. ✅ Create several tasks
-2. ✅ Close and reopen app
-3. ✅ Verify all tasks are preserved
-4. ✅ Test across different platforms
-5. ✅ Confirm cross-session reliability
+1. Create several tasks
+2. Close and reopen the app
+3. Verify all tasks are preserved
+4. Test across different platforms
+5. Confirm cross-session reliability
 
-## 🧪 Testing & Quality Assurance
+## Testing & Quality Assurance
 
 ### **Tested Platforms**
-- ✅ **Chrome Browser**: Full functionality verified
-- ✅ **Windows Desktop**: Complete feature set working
-- ✅ **Android Emulator**: Mobile experience optimized
-- ✅ **Cross-Platform**: Data consistency maintained
+**Chrome Browser**: Full functionality verified
+  **Windows Desktop**: Complete feature set working
+  **Android Emulator**: Mobile experience optimized
+  **Cross-Platform**: Data consistency maintained
 
 ### **Error Handling**
-- ✅ **Network Independence**: Works completely offline
-- ✅ **Storage Errors**: Graceful fallback and user notification
-- ✅ **Input Validation**: Prevents invalid data entry
-- ✅ **Platform Compatibility**: Automatic adaptation to platform capabilities
+**Network Independence**: Works completely offline
+  **Storage Errors**: Graceful fallback and user notification
+  **Input Validation**: Prevents invalid data entry
+  **Platform Compatibility**: Automatic adaptation to platform capabilities
 
-## 📊 Project Statistics
+## Project Statistics
 
 - **Total Files**: 20+ source files with comprehensive documentation
 - **Lines of Code**: 2500+ lines with detailed comments
@@ -259,7 +259,7 @@ dependencies:
 - **UI Components**: 20+ custom widgets
 - **Architecture Documentation**: Complete with ARCHITECTURE.md
 
-## 🎓 Educational Value
+## Educational Value
 
 This project demonstrates:
 - ✅ **Multi-screen Flutter apps** with bottom navigation
@@ -270,13 +270,8 @@ This project demonstrates:
 - ✅ **Cross-platform development** strategies
 - ✅ **Error handling** and user experience design
 - ✅ **Code organization** and project structure
-- ✅ **Comprehensive code documentation** with meaningful comments
-- ✅ **Clean architecture** with separation of concerns
-- ✅ **Platform abstraction** and conditional imports
-- ✅ **Singleton design pattern** implementation
-- ✅ **Immutable data models** with copyWith pattern
 
-## 🏆 Achievement Summary
+##  Achievement Summary
 
 **All Requirements Met:**
 - ✅ Task Management (Create, Read, Update, Delete)
@@ -289,19 +284,6 @@ This project demonstrates:
 - ✅ Cross-platform compatibility
 - ✅ Data persistence across sessions
 
-**Code Quality & Documentation:**
-- ✅ **Exemplary Code Quality**: Clean, well-structured, and organized
-- ✅ **Comprehensive Comments**: Every class, method, and complex logic explained
-- ✅ **Meaningful Names**: Clear variable and function naming conventions
-- ✅ **Modular Structure**: Proper separation of UI, logic, and data layers
-- ✅ **Architecture Documentation**: Detailed ARCHITECTURE.md file
-- ✅ **Design Pattern Documentation**: Singleton, Factory, and Immutable patterns explained
-
-## 📄 License
+## License
 
 This project is created for educational purposes as part of a Flutter development course.
-
----
-
-**🎉 Status: COMPLETE & FULLY FUNCTIONAL**  
-**Built with ❤️ using Flutter & Dart**
