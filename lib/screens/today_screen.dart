@@ -54,7 +54,9 @@ class _TodayScreenState extends State<TodayScreen> {
 
     if (result != null) {
       try {
-        await _databaseService.insertTask(result);
+        print('Attempting to save task: ${result.title}');
+        final taskId = await _databaseService.insertTask(result);
+        print('Task saved with ID: $taskId');
         await _loadTodayTasks();
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -62,6 +64,7 @@ class _TodayScreenState extends State<TodayScreen> {
           );
         }
       } catch (e) {
+        print('Error adding task: $e');
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Error adding task: $e')),

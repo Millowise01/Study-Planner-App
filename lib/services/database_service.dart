@@ -23,34 +23,62 @@ class DatabaseService {
   }
 
   Future<Database> _initDatabase() async {
-    // Initialize database factory based on platform
-    await initializeDatabaseFactory();
-    
-    String path = join(await getDatabasesPath(), 'study_planner.db');
-    return await openDatabase(
-      path,
-      version: 1,
-      onCreate: _onCreate,
-    );
+    try {
+      print('DatabaseService: Initializing database...');
+      // Initialize database factory based on platform
+      await initializeDatabaseFactory();
+      print('DatabaseService: Database factory initialized');
+      
+      String path = join(await getDatabasesPath(), 'study_planner.db');
+      print('DatabaseService: Database path: $path');
+      final db = await openDatabase(
+        path,
+        version: 1,
+        onCreate: _onCreate,
+      );
+      print('DatabaseService: Database opened successfully');
+      return db;
+    } catch (e) {
+      print('DatabaseService: Error initializing database: $e');
+      rethrow;
+    }
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    await db.execute('''
-      CREATE TABLE tasks(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        title TEXT NOT NULL,
-        description TEXT,
-        dueDate INTEGER NOT NULL,
-        reminderTime INTEGER,
-        isCompleted INTEGER NOT NULL DEFAULT 0
-      )
-    ''');
+    try {
+      print('DatabaseService: Creating tasks table...');
+      await db.execute('''
+        CREATE TABLE tasks(
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          title TEXT NOT NULL,
+          description TEXT,
+          dueDate INTEGER NOT NULL,
+          reminderTime INTEGER,
+          isCompleted INTEGER NOT NULL DEFAULT 0
+        )
+      ''');
+      print('DatabaseService: Tasks table created successfully');
+    } catch (e) {
+      print('DatabaseService: Error creating table: $e');
+      rethrow;
+    }
   }
 
   // Insert a new task
   Future<int> insertTask(Task task) async {
-    final db = await database;
-    return await db.insert('tasks', task.toMap());
+    try {
+      print('DatabaseService: Attempting to insert task: ${task.title}');
+      final db = await database;
+      print('DatabaseService: Database obtained');
+      final taskMap = task.toMap();
+      print('DatabaseService: Task map: $taskMap');
+      final result = await db.insert('tasks', taskMap);
+      print('DatabaseService: Task inserted with ID: $result');
+      return result;
+    } catch (e) {
+      print('DatabaseService: Error inserting task: $e');
+      rethrow;
+    }
   }
 
   // Get all tasks
