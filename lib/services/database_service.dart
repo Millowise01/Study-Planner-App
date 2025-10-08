@@ -3,6 +3,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../models/task.dart';
 import 'package:flutter/foundation.dart';
+import 'web_storage_service.dart';
 
 // Conditional imports for platform-specific code
 import 'database_service_stub.dart'
@@ -17,12 +18,19 @@ class DatabaseService {
   static Database? _database;
 
   Future<Database> get database async {
+    if (kIsWeb) {
+      // For web, we don't use SQLite, return a dummy database
+      throw UnsupportedError('SQLite not used on web platform');
+    }
     if (_database != null) return _database!;
     _database = await _initDatabase();
     return _database!;
   }
 
   Future<Database> _initDatabase() async {
+    if (kIsWeb) {
+      throw UnsupportedError('SQLite not used on web platform');
+    }
     try {
       print('DatabaseService: Initializing database...');
       // Initialize database factory based on platform
@@ -31,6 +39,7 @@ class DatabaseService {
       
       String path = join(await getDatabasesPath(), 'study_planner.db');
       print('DatabaseService: Database path: $path');
+      
       final db = await openDatabase(
         path,
         version: 1,
@@ -68,6 +77,9 @@ class DatabaseService {
   Future<int> insertTask(Task task) async {
     try {
       print('DatabaseService: Attempting to insert task: ${task.title}');
+      if (kIsWeb) {
+        return await WebStorageService.insertTask(task);
+      }
       final db = await database;
       print('DatabaseService: Database obtained');
       final taskMap = task.toMap();
@@ -83,6 +95,9 @@ class DatabaseService {
 
   // Get all tasks
   Future<List<Task>> getAllTasks() async {
+    if (kIsWeb) {
+      return await WebStorageService.getAllTasks();
+    }
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query('tasks');
     return List.generate(maps.length, (i) {
@@ -92,6 +107,9 @@ class DatabaseService {
 
   // Get tasks for a specific date
   Future<List<Task>> getTasksForDate(DateTime date) async {
+    if (kIsWeb) {
+      return await WebStorageService.getTasksForDate(date);
+    }
     final db = await database;
     final startOfDay = DateTime(date.year, date.month, date.day);
     final endOfDay = DateTime(date.year, date.month, date.day, 23, 59, 59);
@@ -110,11 +128,17 @@ class DatabaseService {
 
   // Get today's tasks
   Future<List<Task>> getTodayTasks() async {
+    if (kIsWeb) {
+      return await WebStorageService.getTodayTasks();
+    }
     return await getTasksForDate(DateTime.now());
   }
 
   // Get tasks with reminders for today
   Future<List<Task>> getTodayReminders() async {
+    if (kIsWeb) {
+      return await WebStorageService.getTodayReminders();
+    }
     final db = await database;
     final now = DateTime.now();
     final startOfDay = DateTime(now.year, now.month, now.day);
@@ -134,6 +158,10 @@ class DatabaseService {
 
   // Update a task
   Future<int> updateTask(Task task) async {
+    if (kIsWeb) {
+      await WebStorageService.updateTask(task);
+      return 1; // Return success indicator
+    }
     final db = await database;
     return await db.update(
       'tasks',
@@ -145,6 +173,10 @@ class DatabaseService {
 
   // Delete a task
   Future<int> deleteTask(int id) async {
+    if (kIsWeb) {
+      await WebStorageService.deleteTask(id);
+      return 1; // Return success indicator
+    }
     final db = await database;
     return await db.delete(
       'tasks',
@@ -172,6 +204,9 @@ class DatabaseService {
 
   // Get dates that have tasks (for calendar highlighting)
   Future<List<DateTime>> getDatesWithTasks(DateTime month) async {
+    if (kIsWeb) {
+      return await WebStorageService.getDatesWithTasks(month);
+    }
     final startOfMonth = DateTime(month.year, month.month, 1);
     final endOfMonth = DateTime(month.year, month.month + 1, 0);
     

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'screens/today_screen.dart';
 import 'screens/calendar_screen.dart';
 import 'screens/settings_screen.dart';
@@ -66,8 +67,10 @@ class _MainScreenState extends State<MainScreen> {
 
   Future<void> _initializeApp() async {
     try {
-      // Initialize database
-      await _databaseService.database;
+      // Initialize database (skip for web)
+      if (!kIsWeb) {
+        await _databaseService.database;
+      }
       
       // Check for reminders
       await _checkReminders();
