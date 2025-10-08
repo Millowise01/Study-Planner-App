@@ -1,11 +1,23 @@
-import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
-import '../models/task.dart';
+// Web-specific storage service using SharedPreferences for browser localStorage
+// Provides SQLite-like interface for web platform using JSON serialization
+// Handles task persistence in browser's localStorage with automatic ID generation
 
+import 'dart:convert';                           // JSON encoding/decoding
+import 'package:shared_preferences/shared_preferences.dart'; // Browser localStorage access
+import '../models/task.dart';                    // Task data model
+
+/// Web storage service implementing task persistence using SharedPreferences
+/// Mimics database operations using browser's localStorage
+/// Provides same interface as SQLite implementation for platform abstraction
 class WebStorageService {
+  // Storage key for tasks in SharedPreferences
   static const String _tasksKey = 'tasks_storage';
+  
+  // Auto-incrementing ID counter for new tasks (simulates database auto-increment)
   static int _nextId = 1;
 
+  /// Getter for SharedPreferences instance
+  /// Provides access to browser's localStorage
   static Future<SharedPreferences> get _prefs async {
     return await SharedPreferences.getInstance();
   }

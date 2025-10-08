@@ -1,7 +1,13 @@
-import 'package:flutter/material.dart';
-import '../services/settings_service.dart';
-import '../services/database_service.dart';
+// Settings screen for configuring app preferences and viewing app information
+// Provides toggles for reminders, displays storage information, and app statistics
+// Includes data management options like resetting settings and clearing tasks
 
+import 'package:flutter/material.dart';      // Flutter Material Design components
+import '../services/settings_service.dart';  // Service for managing app settings
+import '../services/database_service.dart';  // Service for database operations
+
+/// Settings screen widget for app configuration and information display
+/// Provides user interface for managing app preferences and viewing statistics
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -9,13 +15,17 @@ class SettingsScreen extends StatefulWidget {
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
+/// State class for SettingsScreen managing settings data and user interactions
 class _SettingsScreenState extends State<SettingsScreen> {
+  // Service instances for settings and database operations
   final SettingsService _settingsService = SettingsService();
   final DatabaseService _databaseService = DatabaseService();
-  bool _remindersEnabled = true;
-  String _storageMethod = 'SQLite';
-  int _totalTasks = 0;
-  bool _isLoading = true;
+  
+  // State variables for UI display
+  bool _remindersEnabled = true;    // Current reminder toggle state
+  String _storageMethod = 'SQLite'; // Current storage method being used
+  int _totalTasks = 0;              // Total number of tasks in database
+  bool _isLoading = true;           // Loading state for async operations
 
   @override
   void initState() {

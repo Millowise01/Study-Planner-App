@@ -1,9 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import '../models/task.dart';
+// Dialog widget for creating new tasks or editing existing ones
+// Provides form fields for task title, description, due date/time, and reminders
+// Handles input validation and returns Task object to parent widget
 
+import 'package:flutter/material.dart';  // Flutter Material Design components
+import 'package:intl/intl.dart';          // Date/time formatting utilities
+import '../models/task.dart';             // Task data model
+
+/// Modal dialog for creating new tasks or editing existing ones
+/// Accepts optional Task parameter for editing mode
+/// Returns Task object when user saves, null when cancelled
 class AddTaskDialog extends StatefulWidget {
-  final Task? task;
+  final Task? task;  // Optional task for editing (null for new task)
 
   const AddTaskDialog({super.key, this.task});
 
@@ -11,13 +18,17 @@ class AddTaskDialog extends StatefulWidget {
   State<AddTaskDialog> createState() => _AddTaskDialogState();
 }
 
+/// State class for AddTaskDialog managing form data and user interactions
 class _AddTaskDialogState extends State<AddTaskDialog> {
-  final _titleController = TextEditingController();
-  final _descriptionController = TextEditingController();
-  DateTime _dueDate = DateTime.now();
-  TimeOfDay _dueTime = TimeOfDay.now();
-  TimeOfDay? _reminderTimeOfDay;
-  bool _hasReminder = false;
+  // Text editing controllers for form fields
+  final _titleController = TextEditingController();       // Task title input
+  final _descriptionController = TextEditingController(); // Task description input
+  
+  // Date and time state variables
+  DateTime _dueDate = DateTime.now();     // Selected due date (defaults to today)
+  TimeOfDay _dueTime = TimeOfDay.now();   // Selected due time (defaults to current time)
+  TimeOfDay? _reminderTimeOfDay;          // Optional reminder time
+  bool _hasReminder = false;              // Whether reminder is enabled
 
   @override
   void initState() {
